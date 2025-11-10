@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Transactions from "./pages/Transactions";
 import Reports from "./pages/Reports";
 import GetQuote from "./pages/GetQuote";
+import AddTransaction from "./pages/AddTransaction";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<AddTransaction />} />
           <Route path="/transactions" element={<Transactions/>} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/getquote" element={<GetQuote />} />
