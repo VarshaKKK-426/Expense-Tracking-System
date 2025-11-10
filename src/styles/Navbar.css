@@ -1,0 +1,23 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 2px 2px rgb(239, 238, 238);
+    padding: 10px 10px;
+}
+.navLink{
+    display: flex;
+    flex-direction: row;
+}
+nav ul li{
+    list-style: none;
+    margin-right: 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+nav ul li a:hover{
+    color: blue;
+}
