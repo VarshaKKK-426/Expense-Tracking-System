@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/Dashboard.css";
 import TransactionCards from '../components/TransactionCards';
+import RecentTransactions from '../components/RecentTransactions';
 
 function Dashboard() {
     const [transactions, setTransactions] = useState([]);
@@ -38,6 +39,13 @@ function Dashboard() {
                 <button className="add-transaction" onClick={addTransaction}> + Add Transaction</button>
             </div>
             <TransactionCards balance={balance} income={totalIncome} expense={totalExpense} />
+            <div className='transactions-chart-row'>
+                <div className='transactions half-width'>
+                    <h3>Recent Transactions</h3>
+                    <RecentTransactions transactions={transactions}/>
+
+                </div>
+            </div>
         </div>
     );
 }
