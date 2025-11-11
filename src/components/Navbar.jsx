@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import GetQuote from "../pages/GetQuote";
 
-function Navbar() {
+function Navbar({openQuote}) {
+
     return (
         <>
             <nav className="navBar">
@@ -21,11 +23,12 @@ function Navbar() {
 
                     </li>
                     <li>
-                        <Link to={"/getquote"}>GetQuote</Link>
-
+                        {/* <Link to={"/getquote"}>GetQuote</Link> */}
+                        <div className="quote-btn" onClick={openQuote}>Get Quote</div>
                     </li>
                 </ul>
             </nav>
+
         </>
     )
 }

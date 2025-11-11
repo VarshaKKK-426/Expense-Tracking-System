@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import "../styles/Dashboard.css";
 import TransactionCards from '../components/TransactionCards';
 import RecentTransactions from '../components/RecentTransactions';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
     const [transactions, setTransactions] = useState([]);
     const [totalIncome, setTotalIncome] = useState(0);
     const [totalExpense, setTotalExpense] = useState(0);
     const [balance, setBalance] = useState(0);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const existingTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
@@ -29,7 +32,7 @@ function Dashboard() {
     }, []);
 
     function addTransaction() {
-
+        navigate('/addtransaction');
     }
 
     return (
@@ -42,7 +45,7 @@ function Dashboard() {
             <div className='transactions-chart-row'>
                 <div className='transactions half-width'>
                     <h3>Recent Transactions</h3>
-                    <RecentTransactions transactions={transactions}/>
+                    <RecentTransactions transactions={transactions} />
 
                 </div>
             </div>
