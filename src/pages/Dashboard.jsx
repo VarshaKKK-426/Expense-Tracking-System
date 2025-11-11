@@ -1,7 +1,43 @@
+import React, { useEffect, useState } from 'react';
+import "../styles/Dashboard.css";
+import TransactionCards from '../components/TransactionCards';
+
 function Dashboard() {
+    const [transactions, setTransactions] = useState([]);
+    const [totalIncome, setTotalIncome] = useState(0);
+    const [totalExpense, setTotalExpense] = useState(0);
+    const [balance, setBalance] = useState(0);
+
+    useEffect(() => {
+        const existingTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+        setTransactions(existingTransactions);
+        let income = 0;
+        let expense = 0;
+
+        existingTransactions.forEach((transaction) => {
+            if (transaction.type == "Income") {
+                income += Number(transaction.amount);
+            }
+            else {
+                expense += Number(transaction.amount);
+            }
+        })
+        setTotalIncome(income);
+        setTotalExpense(expense);
+        setBalance(income - expense);
+    }, []);
+
+    function addTransaction() {
+
+    }
+
     return (
-        <div>
-            <h1>Welcome to the Dashboard</h1>
+        <div className="dashboard">
+            <div className="dashboard-inner">
+                <h2>Dashboard</h2>
+                <button className="add-transaction" onClick={addTransaction}> + Add Transaction</button>
+            </div>
+            <TransactionCards balance={balance} income={totalIncome} expense={totalExpense} />
         </div>
     );
 }

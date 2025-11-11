@@ -10,15 +10,16 @@ import AddTransaction from "./pages/AddTransaction";
 function App() {
   return (
     <>
-      
+
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
-          <Route path="/" element={<AddTransaction />} />
-          <Route path="/transactions" element={<Transactions/>} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/transactions" element={<Transactions />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/addtransaction" element={<AddTransaction />} />
           <Route path="/getquote" element={<GetQuote />} />
-        </Routes>      
+        </Routes>
       </BrowserRouter>
 
     </>

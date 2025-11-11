@@ -12,7 +12,7 @@ function Transactions() {
                     <tr>
                         <th>Category</th>
                         <th>Type</th>
-                        <th>Amount</th> 
+                        <th>Amount</th>
                         <th>Description</th>
                         <th>Date</th>
                         <th>Actions</th>
@@ -26,6 +26,13 @@ function Transactions() {
                             <td className={transaction.type === 'Income' ? 'income' : 'expense'}>{transaction.amount}</td>
                             <td>{transaction.description || 'No description'}</td>
                             <td>{transaction.date}</td>
+                            <td>
+                                <div className="action-buttons">
+                                    <button className="edit-btn">Edit</button>
+                                    <button className="delete-btn">Delete</button>
+
+                                </div>
+                            </td>
                         </tr>
                     ))}
 
