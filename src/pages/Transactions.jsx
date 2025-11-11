@@ -1,8 +1,22 @@
 import React from "react";
 import "../styles/Transactions.css";
+import { useNavigate } from "react-router-dom";
 
 function Transactions() {
+    const navigate = useNavigate();
     const existingTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+
+    function handleEdit(index){
+        const editTransaction = existingTransactions[index];
+        console.log(editTransaction)
+        navigate('/addtransaction', {state: {transaction: {...editTransaction, index}}});
+    }
+
+    function handleDelete(index){
+        const updatedTransactions = existingTransactions.filter((data, i) => i !== index);
+        localStorage.setItem("transactions", JSON.stringify(updatedTransactions));
+        window.location.reload();
+    }
 
     return (
         <div className="transactions-container">
@@ -28,8 +42,8 @@ function Transactions() {
                             <td>{transaction.date}</td>
                             <td>
                                 <div className="action-buttons">
-                                    <button className="edit-btn">Edit</button>
-                                    <button className="delete-btn">Delete</button>
+                                    <button className="edit-btn" onClick={()=>handleEdit(index)}>Edit</button>
+                                    <button className="delete-btn" onClick={()=>handleDelete(index)}>Delete</button>
 
                                 </div>
                             </td>
