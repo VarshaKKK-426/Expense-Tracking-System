@@ -3,6 +3,25 @@ import "../styles/Dashboard.css";
 import TransactionCards from '../components/TransactionCards';
 import RecentTransactions from '../components/RecentTransactions';
 import { useNavigate } from 'react-router-dom';
+// import { Bar } from 'react-chartjs-2';
+// import {
+//     Chart as ChartJS,
+//     CategorySacle,
+//     LinearScale,
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend,
+// } from 'chart.js';
+
+// ChartJS.register(
+//     CategorySacle,
+//     LinearScale,    
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend
+// );
 
 function Dashboard() {
     const [transactions, setTransactions] = useState([]);
