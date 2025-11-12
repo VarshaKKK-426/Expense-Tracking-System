@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/AddTransaction.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function AddTransaction() {
     const [type, setType] = useState("Expense");
@@ -13,6 +13,8 @@ function AddTransaction() {
     const [editIndex, setEditIndex] = useState(null);
 
     const location = useLocation();
+
+    const navigate = useNavigate();
 
 
     function addTransaction(e) {
@@ -74,8 +76,13 @@ function AddTransaction() {
         }
     }, [location])
 
+    function navigateToDashboard(){
+        navigate('/');
+    }
+
     return (
         <div className="addTransactionContainer">
+            <button type="submit" className="back-btn" onClick={navigateToDashboard}>Back</button>
             <h3>Add New Transaction</h3>
             <div className="transactionBox">
                 <div className="transactionType">
