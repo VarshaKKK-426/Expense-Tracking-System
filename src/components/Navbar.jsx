@@ -18,10 +18,10 @@ function Navbar({openQuote}) {
                         <Link to={"/transactions"}>Transactions</Link>
 
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to={"/reports"}>Reports</Link>
 
-                    </li>
+                    </li> */}
                     <li>
                         {/* <Link to={"/getquote"}>GetQuote</Link> */}
                         <div className="quote-btn" onClick={openQuote}>Get Quote</div>
